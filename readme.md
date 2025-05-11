@@ -2,7 +2,35 @@
 
 # What is RDBMS?
 
-This terms refes to Relational Database Management System
+An RDBMS (Relational Database Management System) is software that manages databases using a relational model, where data is organized into tables with rows and columns. Tables are linked through keys (primary and foreign), enabling structured data storage, retrieval, and manipulation via SQL (Structured Query Language). Examples include MySQL, PostgreSQL, Oracle, and SQL Server. It ensures data integrity, supports ACID transactions (Atomicity, Consistency, Isolation, Durability), and is widely used for applications requiring structured data management.
+
+# File System Vs DBMS
+
+Here's a concise comparison of **File System** vs **DBMS (Database Management System)**, with a focus on RDBMS since you previously asked about it:
+
+| **Aspect**              | **File System**                                                                 | **DBMS (e.g., RDBMS)**                                                       |
+| ----------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Definition**          | A method for storing and organizing files on a storage device (e.g., HDD, SSD). | A software system for creating, managing, and querying structured databases. |
+| **Data Storage**        | Data stored in files (e.g., text, CSV, JSON) with no inherent structure.        | Data stored in structured tables with defined schemas (rows, columns).       |
+| **Data Organization**   | Hierarchical (folders/directories). No built-in relationships between files.    | Relational (tables linked via keys). Supports complex relationships.         |
+| **Data Access**         | Manual access via application code or file operations (read/write).             | Query-based access using SQL. Supports complex queries and joins.            |
+| **Data Integrity**      | No built-in mechanisms. Integrity depends on application logic.                 | Enforces integrity via constraints (e.g., primary keys, foreign keys).       |
+| **Concurrency Control** | Limited or no support. File locking can cause conflicts.                        | Robust concurrency control (e.g., transactions, locking mechanisms).         |
+| **Scalability**         | Limited; struggles with large datasets or multiple users.                       | Designed for scalability; handles large datasets and concurrent users.       |
+| **Security**            | Basic access control (e.g., file permissions).                                  | Advanced security (user authentication, role-based access, encryption).      |
+| **Data Redundancy**     | High risk of redundancy; no normalization.                                      | Reduces redundancy via normalization and relational design.                  |
+| **Transaction Support** | No transaction management. Partial updates can lead to inconsistency.           | Supports ACID transactions for reliable, consistent operations.              |
+| **Examples**            | Windows NTFS, Linux ext4, FAT32.                                                | MySQL, PostgreSQL, Oracle, SQL Server.                                       |
+| **Use Cases**           | Simple file storage (documents, logs, small-scale apps).                        | Complex applications (banking, e-commerce, enterprise systems).              |
+
+### Key Differences:
+
+- **Structure**: File systems store unstructured or semi-structured data in files, while DBMS (RDBMS) uses structured tables with predefined schemas.
+- **Querying**: File systems require custom code to search or manipulate data; DBMS uses standardized SQL for efficient queries.
+- **Reliability**: DBMS ensures data consistency and integrity through transactions and constraints, unlike file systems.
+- **Performance**: DBMS is optimized for complex operations and large-scale data; file systems are better for simple, sequential access.
+
+If you need a deeper dive into any specific aspect or examples, let me know!
 
 ## What is Database?
 
@@ -10,11 +38,11 @@ A database is a structured collection of related data that represents real-world
 
 For example, here's a simple database table representing employees:
 
-| Employee ID | Name | Department | Salary |
-| --- | --- | --- | --- |
-| 101 | John Smith | IT | 75000 |
-| 102 | Sarah Johnson | HR | 65000 |
-| 103 | Mike Brown | Sales | 70000 |
+| Employee ID | Name          | Department | Salary |
+| ----------- | ------------- | ---------- | ------ |
+| 101         | John Smith    | IT         | 75000  |
+| 102         | Sarah Johnson | HR         | 65000  |
+| 103         | Mike Brown    | Sales      | 70000  |
 
 ## Database Operation Cycle
 
@@ -61,16 +89,16 @@ graph TD;
     A --> D["Data"];
     A --> E["Procedures"];
     A --> F["Users"];
-    
+
     B --> B1["Storage Devices"];
     B --> B2["Processors"];
-    
+
     C --> C1["Query Tools"];
     C --> C2["Security Tools"];
-    
+
     D --> D1["Actual Data"];
     D --> D2["Metadata"];
-    
+
     F --> F1["Administrators"];
     F --> F2["End Users"];
     F --> F3["Developers"];
@@ -87,11 +115,11 @@ graph TD;
 
 ## Example of DBMS Usage
 
-| Scenario | DBMS Solution | Benefit |
-| --- | --- | --- |
-| Library Management | Tracking books and members | Efficient book lending system |
-| Banking System | Managing customer accounts | Secure transaction processing |
-| School Records | Student database management | Easy access to academic records |
+| Scenario           | DBMS Solution               | Benefit                         |
+| ------------------ | --------------------------- | ------------------------------- |
+| Library Management | Tracking books and members  | Efficient book lending system   |
+| Banking System     | Managing customer accounts  | Secure transaction processing   |
+| School Records     | Student database management | Easy access to academic records |
 
 These examples demonstrate how DBMS helps organizations manage their data effectively while maintaining security and accessibility.
 
@@ -130,11 +158,11 @@ Data is stored in flexible, JSON-like documents. Popular in NoSQL databases like
 
 Designed for data whose relationships are best represented as a network of nodes and edges.
 
-| Model Type | Best Used For | Example Database |
-| --- | --- | --- |
-| Relational | Structured data with clear relationships | MySQL, PostgreSQL |
-| Document | Semi-structured data, flexible schemas | MongoDB, CouchDB |
-| Graph | Highly connected data | Neo4j, Amazon Neptune |
+| Model Type | Best Used For                            | Example Database      |
+| ---------- | ---------------------------------------- | --------------------- |
+| Relational | Structured data with clear relationships | MySQL, PostgreSQL     |
+| Document   | Semi-structured data, flexible schemas   | MongoDB, CouchDB      |
+| Graph      | Highly connected data                    | Neo4j, Amazon Neptune |
 
 The choice of database model depends on factors like data structure, scalability requirements, and application needs.
 
@@ -149,11 +177,11 @@ A table in a relational database has specific components that define its structu
 
 Here's an example of a table's anatomy:
 
-| **Attribute Names →** | StudentID | Name | Age | Course |
-| --- | --- | --- | --- | --- |
-| **↓ Tuple (Row)** | 1001 | Alice Smith | 20 | Computer Science |
-|  | 1002 | Bob Johnson | 22 | Mathematics |
-|  | 1003 | Carol Davis | 21 | Physics |
+| **Attribute Names →** | StudentID | Name        | Age | Course           |
+| --------------------- | --------- | ----------- | --- | ---------------- |
+| **↓ Tuple (Row)**     | 1001      | Alice Smith | 20  | Computer Science |
+|                       | 1002      | Bob Johnson | 22  | Mathematics      |
+|                       | 1003      | Carol Davis | 21  | Physics          |
 
 Key characteristics of a relation:
 
@@ -170,31 +198,31 @@ Keys play a crucial role in establishing relationships between tables and mainta
 
 A primary key uniquely identifies each record in a table. It must contain unique values and cannot contain NULL values.
 
-| **StudentID (Primary Key)** | Name | Course |
-| --- | --- | --- |
-| 101 | John Smith | Computer Science |
-| 102 | Emma Davis | Physics |
-| 103 | Michael Brown | Mathematics |
+| **StudentID (Primary Key)** | Name          | Course           |
+| --------------------------- | ------------- | ---------------- |
+| 101                         | John Smith    | Computer Science |
+| 102                         | Emma Davis    | Physics          |
+| 103                         | Michael Brown | Mathematics      |
 
 ## 2. Foreign Key
 
 A foreign key is a field that links to the primary key of another table, creating relationships between tables.
 
 | **EnrollmentID** | StudentID (Foreign Key) | CourseID |
-| --- | --- | --- |
-| 1 | 101 | CS101 |
-| 2 | 102 | PH101 |
-| 3 | 103 | MT101 |
+| ---------------- | ----------------------- | -------- |
+| 1                | 101                     | CS101    |
+| 2                | 102                     | PH101    |
+| 3                | 103                     | MT101    |
 
 ## 3. Composite Key
 
 A composite key consists of multiple fields combined to uniquely identify records.
 
-| **CourseID** | **SemesterID** | CourseName |
-| --- | --- | --- |
-| CS101 | SEM1 | Introduction to Programming |
-| CS101 | SEM2 | Introduction to Programming |
-| PH101 | SEM1 | Basic Physics |
+| **CourseID** | **SemesterID** | CourseName                  |
+| ------------ | -------------- | --------------------------- |
+| CS101        | SEM1           | Introduction to Programming |
+| CS101        | SEM2           | Introduction to Programming |
+| PH101        | SEM1           | Basic Physics               |
 
 ## 4. Super Key
 
@@ -211,19 +239,19 @@ graph TD;
     A --> D["Composite Key"]
     A --> E["Super Key"]
     A --> F["Candidate Key"]
-    
+
     B --> B1["Unique identifier"]
     B --> B2["Cannot be NULL"]
-    
+
     C --> C1["References Primary Key"]
     C --> C2["Creates relationships"]
-    
+
     D --> D1["Multiple fields combined"]
     D --> D2["Unique together"]
-    
+
     E --> E1["Set of attributes"]
     E --> E2["Ensures uniqueness"]
-    
+
     F --> F1["Potential Primary Keys"]
     F --> F2["Must be unique"]
 
@@ -305,17 +333,17 @@ Here's how to normalize a database from 1NF to 3NF:
 
 ### Un-normalized Table:
 
-| OrderID | CustomerName | CustomerEmail | Products |
-| --- | --- | --- | --- |
-| 1 | John Smith | john@email.com | Book, Pen, Notebook |
+| OrderID | CustomerName | CustomerEmail  | Products            |
+| ------- | ------------ | -------------- | ------------------- |
+| 1       | John Smith   | john@email.com | Book, Pen, Notebook |
 
 ### First Normal Form (1NF):
 
-| OrderID | CustomerName | CustomerEmail | Product |
-| --- | --- | --- | --- |
-| 1 | John Smith | john@email.com | Book |
-| 1 | John Smith | john@email.com | Pen |
-| 1 | John Smith | john@email.com | Notebook |
+| OrderID | CustomerName | CustomerEmail  | Product  |
+| ------- | ------------ | -------------- | -------- |
+| 1       | John Smith   | john@email.com | Book     |
+| 1       | John Smith   | john@email.com | Pen      |
+| 1       | John Smith   | john@email.com | Notebook |
 
 ### Third Normal Form (3NF):
 
@@ -323,23 +351,23 @@ Split into multiple tables:
 
 ### Customers Table:
 
-| CustomerID | CustomerName | CustomerEmail |
-| --- | --- | --- |
-| 1 | John Smith | john@email.com |
+| CustomerID | CustomerName | CustomerEmail  |
+| ---------- | ------------ | -------------- |
+| 1          | John Smith   | john@email.com |
 
 ### Orders Table:
 
 | OrderID | CustomerID |
-| --- | --- |
-| 1 | 1 |
+| ------- | ---------- |
+| 1       | 1          |
 
 ### OrderItems Table:
 
 | OrderID | ProductID |
-| --- | --- |
-| 1 | 1 |
-| 1 | 2 |
-| 1 | 3 |
+| ------- | --------- |
+| 1       | 1         |
+| 1       | 2         |
+| 1       | 3         |
 
 ## 3. Best Practices for Database Design
 
